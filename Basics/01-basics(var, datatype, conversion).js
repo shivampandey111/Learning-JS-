@@ -40,7 +40,4 @@ console.log(null>=0) //true
 //Undefined would give false in all three cases 
 
 //Use strict check === which checks for datatypes too 
-
-//Avoid.
-
-
+//Avoid
