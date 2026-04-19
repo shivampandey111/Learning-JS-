@@ -9,7 +9,6 @@
 
 
 //Null is an object type datatype while undefined is undefined datatype  (typeof)
-
 let score = "33abs"
 // console.log(typeof score)
 let number = Number(score)

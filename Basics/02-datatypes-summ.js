@@ -33,5 +33,4 @@ const func = function(){}
        Arrays  =>  object
        Function  =>  object function
        Object  =>  object
-
        */
