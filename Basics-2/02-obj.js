@@ -82,3 +82,21 @@ const detail = [
 //Object.entries would convert individual key-value into an array
 //To check whether a property exists or not
 //console.log(details.hasOwnProperty('phone'))
+
+
+//***************************************  Obj Destructuring */ 
+
+const details1 = {
+    name: "Shivam",
+    email: "shivam@",
+    city: "Rewa",
+    age: 21
+}
+
+//One method is details.name 
+//Another method is destructuring   const {propertyname} = from where do we want to take the property, obj name
+const {name: nm} = details1
+//console.log(name)
+console.log(nm)
+
+//API's are in json format, json is an object that has no name?? Just the basics for now, we get the data from the api in an object format, json. Sometimes, we can get the data from an api in array format too, which has number of objects within it
