@@ -37,4 +37,4 @@ const func = function(){}
 
 
        //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-       //Stack (Primitve) and Heap (Non Primitve) Stack changes are in value and Heap changes are in original
+       //Stack (Primitve) and Heap (Non Primitve), Stack changes are in value and Heap changes are in original

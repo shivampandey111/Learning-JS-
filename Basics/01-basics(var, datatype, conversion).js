@@ -36,8 +36,8 @@ console.log("2">1) //true
 console.log(null>0) //false
 console.log(null == 0) //false
 console.log(null>=0) //true
+//Avoid these types of comparison
 //Because equality and comparison operators work differently, comparison operators convert null to a number and they treat it as 0, that's why > and >= is false and true, equality does not convert. 
 //Undefined would give false in all three cases 
 
 //Use strict check === which checks for datatypes too 
-//Avoid
