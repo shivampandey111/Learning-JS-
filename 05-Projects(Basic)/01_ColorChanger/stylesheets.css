@@ -1,0 +1,28 @@
+.canvas{
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.bg{
+    background-color: rgb(176, 210, 239);
+}
+.button {
+  width: 100px;
+  height: 100px;
+  border: solid black 2px;
+  border-radius: 15px;
+  display: inline-block;
+  cursor: pointer;
+}
+#grey {
+  background: grey;
+}
+
+#white {
+  background: white;
+}
+#blue {
+  background: blue;
+}
+#yellow {
+  background: yellow;
+}
