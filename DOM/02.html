@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: grey; color: orange;">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tue</div>
+        <div class="day">Wed</div>
+        <div class="day">Thu</div>
+    </div>
+</body>
+ <script>
+        const parent1 = document.querySelector('.parent')
+        console.log(parent)    //Would give the parent div
+   //     console.log(parent.children);       would give htmlcollection of all the elements
+
+        // for (let i = 0; i < parent.children.length; i++) {
+        //     (parent.children[i].innerHTML);         //Not parent but parent.children because it returns HTMLCollection, not parent
+        // }
+    //     console.log(parent1.firstElementChild);
+    //     console.log(parent1.lastElementChild);
+    //     const dayOne = document.querySelector('.day')
+    //     console.log(dayOne)
+    //     console.log(dayOne.parentElement)
+    //     console.log(dayOne.nextElementSibling)
+
+
+
+     //NodeList
+     console.log('Nodes: ', parent1.childNodes)
+     //So this would give the nodelist of the childnodes of parent element, text, line break etc. Browser only renders one line break and ignores the rest
+//Nodes:  NodeList(9)0: text1: div.day2: text3: div.day4: text5: div.day6: text7: div.day8: textlength: 9[[Prototype]]: NodeList
+
+    </script>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+    <style>
+        .bg{
+            background-color: grey;
+        }
+    </style>
+</head>
+<body class="bg">
+    <div>
+        <h1 id="Heading" class="Title">Hello <span style="display: none;">Test</span></h1>
+        <p class="para">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus illo saepe facilis. Laudantium explicabo libero illo. Voluptatum quae reiciendis saepe nihil, nulla quam quis, pariatur doloribus, in ullam facere animi.</p>
+        <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur optio sequi, beatae corrupti deleniti magni facilis nemo nihil aliquid nam quam quibusdam, provident dignissimos. Maxime unde libero in accusamus optio.</h2>
+        <h2>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore quam, minima minus accusantium voluptatum cum, quidem recusandae magnam nobis sequi accusamus! Magni cum assumenda dolorum! Blanditiis rem ad maiores tenetur.</h2>
+        <input type="password" name="" id="">
+        <ul>
+            <li class="list">one</li>
+            <li class="list">two</li>
+            <li class="list">three</li>
+        </ul>
+        <!-- 
+        We can select the whole doc using document and its methods (like getElementById etc)
+        document.getElementById('Heading').className             would give the name of the class
+        document.getElementById('Heading').getAttribute('class')  would give the name of the class
+        document.getElementById('Heading').setAttribute('class', 'test')    would override title and set test only
+        document.getElementById('Heading').setAttribute('class', 'test Heading')  now would have the class test and heading
+        const title = document.getElementById('Heading')
+        title.style.backgroundColor = "green"
+
+        Just like background color, padding, background radius etc
+
+
+        Now to get the text content inside the tag, there are three ways
+
+        title.textContent          displays all the text content whether visible or not,  Hello Test
+        title.innerHTML            displays Hello <span style="display: none;">Test</span>, html inside tag gets displayed too
+        title.innerText            displays only the visible text     Hello
+        
+
+        Query Selectors
+
+        document.queryselector('h1')       would display the first h1 of the page
+        document.queryselector('#id') 
+        document.queryselector('.class') 
+        document.querySelector('input[type="password"]')
+       const myul = document.queryselector('ul')         select the whole list
+        myul.queryselector('li')            queryselector selects the first element only
+
+        To select multiple values
+        const tempList = document.querySelectorAll('li')
+        we get a node list
+        tempList.style.color = 'green'    We won't get the desired output because it's a node list, we have to specify the element
+        tempList[0].style.color = 'green'  would green the first list
+         
+        tempList.forEach( function (l) {l.style.backgroundColor = "green"} )   would convert all the list color to green
+
+
+        Now document.queryselectorall, the output from these are in HTMLcollection and node list so map and other can not be used, to do that we convert into that array
+        so just use Array.from 
+        Array.from(tempList)
+
+        myconvertedArray = Array.from(tempList)
+        myconvertedArray.foreach( function(li){
+
+        } )
+        
+
+
+        HTMLCollection is a collection of html elements only, it does not directly support for each, it is returned by methods like document.getElementByClassName/TagName and it is a live collection.
+
+        NodeList is a collection of all types of nodes and it is returned by document.querySelectorAll(), it can contain text, nodes, elements, it is usually static
+        
+        
+        
+        -->
+
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: grey; color: white;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langName){
+        const li = document.createElement('li')
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage('Python')   //Above is not an optimized way 
+
+    //This is an optimized way 
+    function addOptLang(langName){
+        const li = document.createElement('li')    //Created an element: list
+        li.appendChild(document.createTextNode(langName))   //Added a text node to that list element
+        document.querySelector('.language').appendChild(li)  //Added that list element to document
+    }
+    addOptLang('JS')
+
+
+    //Edit
+
+
+    const secLang = document.querySelector("li:nth-child(2)")  //Selected the second element of list
+    console.log(secLang)
+
+//  secLang.innerHTML = "Mojo"  Not an optimized way  
+
+    const secLi = document.createElement('li')  //Created a new element list
+    secLi.textContent = "Mojo"                  //Modified the content of the list with the intended one
+    secLang.replaceWith(secLi)   //Here we had the reference of
+
+    const thirdLang = document.querySelector('li:nth-child(1)')   //or li:first-child
+    console.log(thirdLang)
+    const thirdLi = document.createElement('li')
+    thirdLi.textContent = "TS"
+    thirdLang.replaceWith(thirdLi)
+
+    //Remove
+    const removeElement = document.querySelector("li:last-child")
+    removeElement.remove()
+
+
+
+    
+
+</script>
+</html>
