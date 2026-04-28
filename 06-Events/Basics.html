@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    //Events in js are ran sequentially, there are some exceptions events which gets invoked on a particular activity. 
+
+    // document.getElementById('owl').onclick = function(){
+    //     alert('Owl Clicked')    //Not a good approach, less features.
+    // }
+  //  document.getElementById('owl').addEventListener('click', function(){alert("Owl Clicked")}, false)  //addEventListener provides propogation and more features. There's a third parameter which is by deault false
+
+
+    //Event Object
+     //Whenever an event happens, an event object is created which contains all the information about that event
+
+   document.getElementById('owl').addEventListener('click', function(e){console.log(e)}, false) 
+
+      //Typs of events that we get are the browser events and environment events (mouse click, where it clicked etc) 
+      //Many interview questions from here   type, timestamp, defaultPrevented, target, toElement, srcElement, currentTarget
+
+      //Type: what kind of event happened? addEventListener('click', function(e){
+     //           console.log(e.type)})         This would have a click output
+
+     //timeStamp: time when the event happened from when the browser first loaded
+
+     //target: the actual element that triggered the event
+    // document.addEventListener("click", function(e) {
+ //   console.log(e.target);       if a button was clicked inside a div, button would be output
+//});
+
+    //currentTarget: where the listener is attached, currentTarget in above case would be div
+
+
+      //Client position related clientX, clientY, screenX, screenY etc
+        //clientx and clienty is measured from the top left corener of the visible page, most used
+        //screenx and screeny is measured in the same way of the whole screen, include other tabs and OS UI
+        //pageX and pageY gives mouse position relative to full web page (scroll too)
+
+
+      //altKey, ctrlKey, keyCode **
+
+
+//Event Propogation: event bubbling and event capturing, by default is event bubbling which is false
+    document.getElementById('images').addEventListener('click', function(e)
+        {console.log("clicked ul")}, false)
+    document.getElementById('owl').addEventListener('click', function(e)
+        {console.log('owl clicked')}, false)   
+    //This is event bubbling which works from inside to outside, first 'owl clicked' and then 'clicked ul' 
+    //If false is changed to true, then it would be event capturing and then 'ul clicked' and then 'owl clicked', capturing goes from outside to inside
+    document.getElementById('owl').addEventListener('click', function(e)
+            {console.log('owl clicked');
+            e.stopPropagation()},            ///This would stop the bubbling and only owl clicked would be printed
+        false)
+
+    document.getElementById('google').addEventListener('click', function(e){
+        e.preventDefault()
+   //     e.stopPropagation()              //This stopped the propogation
+  //      console.log('google clicked')       
+    }, false)
+
+
+    document.querySelector('#images').addEventListener('click', function(e){
+  //      console.log(e.target.tagName)   //tagName gives the info about the item that is clicked, whether img or li
+        if(e.target.tagName==='IMG'){
+            //DEFINE THE REMOVE LOGIC HERE
+        }
+
+
+
+        const removeImg = (e.target.parentNode)        //e.target gives only image while e.target.parentNode gives the list item of that particular image
+      //  removeImg.remove()
+       // removeImg.parentNode.removeChild(removeImg)
+  //     console.log(e.target)
+    }, false)
+
+</script>
+</html>

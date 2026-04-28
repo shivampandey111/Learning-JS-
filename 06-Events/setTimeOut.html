@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    setTimeout(function(){console.log("Shivam")},2000)                         //Not a part of the core JS, provided by the environment, it includes an handler or a callback which is basically a function which has no name, or it is declared somewhere else and just a reference here. And the second thing it includes is the timeOut time.  This function is basically executing a task after that time just once
+    const SayName = function(){
+        console.log("Hello")
+    }
+    setTimeout(SayName, 5000)        //give the reference of the function, do not call it ()
+
+    const change = function(){
+        document.querySelector('h1').innerHTML = "Changed?"
+    }
+    const changeMe = setTimeout(change, 3000)
+
+    //Now to stop the setTimeOut before it is executed, we use clearTimeOut, it needs a reference on which setTimeOut we want to remove
+    const stopped = document.querySelector('#stop').addEventListener('click', function()
+        {clearTimeout(changeMe) 
+        })
+        
+    
+</script>
+</html>
