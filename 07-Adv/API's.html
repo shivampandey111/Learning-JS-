@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;">
+    
+</body>
+<script>
+//     0	UNSENT	Client has been created. open() not called yet.
+// 1	OPENED	open() has been called.
+// 2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+// 3	LOADING	Downloading; responseText holds partial data.
+// 4	DONE	The operation is complete.
+    //XML Requests
+    const requestURL = 'https://api.github.com/users/shivampandey111'
+    //Create an object
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requestURL);     //the obj has methods, open has two parameters, first is what type of data that we want to send, and second is to mention the source
+    //And now need to call open by send 
+    xhr.send();
+    //Now to track the state numbers
+    xhr.onreadystatechange = function(){   //This tracks the state change, this accpets a function to tell what to do on state exchange, this code inside the function would be executed whenever the state is changing
+        console.log(xhr.readyState)
+       // if(xhr.readyState === 4){
+        //    console.log(this.responseText)   //So what this is doing is executing the code when the ready state becomes 4. And the code would print all the text of the api (smth like that, pause for now), we need to use 'this' because we need to mention that we are talking about current context. And now we can handle and get the values from the api object.
+           
+            if(xhr.readyState === 4){        
+         //        const data = this.responseText;
+               // console.log(data)    //would print the data of the api, note that the type is string, not object (in most cases)
+          //     console.log(data.followers); //Won't work because it's string, not object
+            
+            //So to convert string into an object, JSON.parse and .stringify for opposite 
+            const data= JSON.parse(this.responseText);
+            console.log(typeof data)
+            console.log(data.followers);
+
+    }
+}
+    
+</script>
+</html>

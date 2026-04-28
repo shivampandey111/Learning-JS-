@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <style>
+        body {
+            background-color: dimgrey;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 30vh;
+        }
+        .card{
+            margin-top: 500px;
+            width: 600px;
+            height: 600px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            padding: 20px;
+            display: block;
+            align-items: center;
+        }
+        .top-row{
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="top-row">
+            <button class="detail-button" style="cursor: pointer;
+            border-radius: 5px;
+            padding: 5px;
+            ">Click Here for details!</button>
+        </div>
+        
+    </div>
+    
+
+
+    
+</body>
+<script>
+    
+    document.querySelector('.detail-button').addEventListener('click', function(){
+        const api = 'https://api.github.com/users/hiteshchoudhary'
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', api);
+        xhr.send();
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState===4){
+                const data = JSON.parse(this.responseText)
+                const p = document.createElement('p');   //First create element then do modification
+                const img = document.createElement('img')
+                p.innerText = `Follower: ${data.followers}`;
+                img.src = data.avatar_url;
+                const card = document.querySelector('.card')
+                card.innerHTML = "";
+                document.querySelector('.card').appendChild(img)
+  
+                document.querySelector('.card').appendChild(p)
+                
+            }
+        }
+    })
+    
+
+</script>
+</html>
